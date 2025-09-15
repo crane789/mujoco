@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco>
+<compiler meshdir="assets"/>
+  <asset>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_tan_xian_wei_lian_jie_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_you_ce_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_zuo_ce_gu_ding_jian__1.stl"/>
+  </asset>
+
+  <default>
+  <default class="前腿_default">
+  <geom contype="0" conaffinity="0"/>
+  </default>
+  </default>
+
+  <worldbody>
+  <body name="前腿_body" pos="0 0 0">
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__2" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_tan_xian_wei_lian_jie_jian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__2" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__2" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__2" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__2" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_you_ce_gu_ding_jian__1" mass="0.0001" class="前腿_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_zuo_ce_gu_ding_jian__1" mass="0.5770" class="前腿_default"/>
+  </body>
+  </worldbody>
+</mujoco>

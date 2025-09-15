@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco>
+<compiler meshdir="assets"/>
+  <asset>
+    
+  </asset>
+
+  <default>
+  <default class="后轮_default">
+  <geom contype="0" conaffinity="0"/>
+  </default>
+  </default>
+
+  <worldbody>
+  <body name="后轮_body" pos="0 0 0">
+    
+  </body>
+  </worldbody>
+</mujoco>

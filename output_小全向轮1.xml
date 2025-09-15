@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco>
+<compiler meshdir="assets"/>
+  <asset>
+    <mesh file="t4____xiao_quan_xiang_lun_1_4.stl"/>
+  </asset>
+
+  <default>
+  <default class="小全向轮1_default">
+  <geom contype="0" conaffinity="0"/>
+  </default>
+  </default>
+
+  <worldbody>
+  <body name="小全向轮1_body" pos="0 0 0">
+    <geom type="mesh" mesh="t4____xiao_quan_xiang_lun_1_4" mass="0.0001" class="小全向轮1_default"/>
+  </body>
+  </worldbody>
+</mujoco>

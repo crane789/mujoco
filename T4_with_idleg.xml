@@ -1,0 +1,741 @@
+<mujoco model="T4">
+    <option timestep="0.0005" iterations="80" solver="Newton" tolerance="1e-5" gravity="0 0 -9.81" cone="elliptic"/>
+    <size njmax="200" nconmax="100" nstack="1000"/>
+    <visual>
+        <rgba haze="1 1 1 1"/>
+    </visual>
+    <compiler meshdir="assets" angle="degree" eulerseq="zxz"/>
+    <asset>
+        <hfield name="agent_eval_gym" file="agent_eval_gym.png" size="10 10 1 1" />
+        <hfield name="enhanced_terrain" file="enhanced_terrain_heightmap.png" size="10 10 1 1" />
+        <texture type="skybox" file="desert.png" gridsize="3 4" gridlayout=".U..LFRB.D.."/> 
+        <texture name="texplane" type="2d" builtin="gradient" rgb1=".2 .2 .2" rgb2=".8 .8 .8" width="512" height="512" mark="cross" markrgb=".8 .8 .8"/>
+        <material name="matplane" reflectance="0.3" texture="texplane" texrepeat="1 1" texuniform="true"/>
+        <texture name="texterrain" type="2d" builtin="flat" rgb1=".7 .5 .3" width="512" height="512"/>
+        <material name="terrain_material" reflectance="0.1" texture="texterrain" texrepeat="10 10" texuniform="true"/>
+        <texture name="texenhanced" type="2d" builtin="flat" rgb1=".4 .6 .3" width="512" height="512"/>
+        <material name="enhanced_material" reflectance="0.15" texture="texenhanced" texrepeat="8 8" texuniform="true"/>
+        <material name="matsponge" rgba="0.8 0.8 0.2 1" specular="0.3" shininess="0.1" />
+        <!-- 后轮花纹纹理 -->
+        <texture name="rear_wheel_pattern" type="2d" builtin="checker" rgb1="0.1 0.1 0.1" rgb2="0.9 0.9 0.9" width="512" height="512"/>
+        <material name="rear_wheel_material" reflectance="0.3" texture="rear_wheel_pattern" texrepeat="8 4" texuniform="false"/>
+        
+        <!-- 前轮花纹纹理 -->
+        <texture name="front_wheel_pattern" type="2d" builtin="gradient" rgb1="0.0 0.0 0.0" rgb2="1.0 1.0 1.0" width="512" height="512" mark="cross" markrgb="0.5 0.5 0.5"/>
+        <material name="front_wheel_material" reflectance="0.4" texture="front_wheel_pattern" texrepeat="6 6" texuniform="false"/>
+        
+        <!-- 小全向轮花纹纹理 -->
+        <texture name="omni_wheel_pattern" type="2d" builtin="checker" rgb1="0.2 0.2 0.2" rgb2="0.8 0.8 0.8" width="256" height="256"/>
+        <material name="omni_wheel_material" reflectance="0.5" texture="omni_wheel_pattern" texrepeat="4 4" texuniform="false"/>
+        
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1_xjc_xd80_h28_3d__fa_ke_hu___a1_01_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_ban__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_qian_ce_gu_ding_ban___jia_gao__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_hou_ce_gu_ding_ban___jia_gao__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__chong_dian_bao__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_xia_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_100mm15mm_guang_zhou__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__3.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_6_tao_tong__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_35_12_gu_ding_huan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__gang_xing_hou_lun_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__4.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_dian_pian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___wu_jian_zhen___wu_fu_zhu_tui_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new__wai_ce__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__dian_pian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_gu_ding_duan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_shu_chu_duan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji___quan_xiang_lun_lian_jie_jian__new_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__tuo_pan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_16_tao_tong__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_8_tao_tong__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui_zhi_jia__280_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_16_tao_tong__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_8_tao_tong__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui_zhi_jia__280_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ji_shen_tan_xian_wei_ban__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_24v_dian_chi__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_xia_gu_ding_ban__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__2_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__4.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__10.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__4.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__6.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__7.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__8.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__9.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__xiang_ji__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ying_wei_da_jason_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_shang_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___gu_ding_duan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___shu_chu_duan__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__fu_zhu_tui_lian_jie_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__3.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_xia_gu_ding_ban__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__5.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__7.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__3.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__4.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__6.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__qu_dong_qi_biao_zhun_mo_xing__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_tan_xian_wei_lian_jie_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__2.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_you_ce_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_zuo_ce_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1_linear_slide_1_linear_slide_a_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1_linear_slide_1_linear_slide_b_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__liu_wei_li_chuan_gan_qi__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__liu_wei_li_chuan_gan_qi___zhi_xian_dian_ji_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__liu_wei_li_chuan_gan_qi_ji_shen_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__zhi_xian_chuan_gan_qi__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__zhi_xian_chuan_gan_qi_an_zhuang_jian__3.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_0814_bu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin___1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin____ao__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__fu_jian___fu_jian___zhuang_pei_ti_1__bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_10mm_bu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_chuan_gan_qi_gua_gou_gu_ding_jian__1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_mo_zu_di_bu_lian_jie_jian__0801_1.stl"/>
+        <mesh file="t4__wu_fu_zhu_tui_ban_____qian_lun__1.stl"/>
+        <mesh file="t4____xiao_quan_xiang_lun_1_4.stl"/>
+        <mesh file="t4____xiao_quan_xiang_lun_2_8.stl"/>
+        <mesh file="t4____xiao_quan_xiang_lun_3_1.stl"/>
+        <mesh file="circle_of_tire.stl"/>
+        <mesh file="cylinder_of_tire.stl"/>
+    </asset>
+
+ 
+    <default>
+    <default class="terrain_default">
+    <geom contype="2" conaffinity="2" friction="1.0 0.8 0.05" solref="0.02 1" solimp="0.9 0.95 0.001"/>
+    </default>
+    <default class="enhanced_terrain_default">
+    <geom contype="4" conaffinity="1" friction="1.2 0.9 0.06" solref="0.015 1" solimp="0.85 0.9 0.002"/>
+    </default>
+    <default class="后轮_default">
+    <geom contype="1" conaffinity="1"/>
+    </default>
+    <default class="车身_default">
+    <geom contype="2" conaffinity="2"/>
+    </default>
+    <default class="辨识腿_default">
+    <geom contype="0" conaffinity="0"/>
+    </default>
+    <default class="辨识腿滑块_default">
+    <geom contype="4" conaffinity="4"/>
+    </default>
+    <default class="前轮_default">
+    <geom contype="1" conaffinity="1"/>
+    </default>
+    <default class="小全向轮1_default">
+    <geom contype="1" conaffinity="1"/>
+    </default>
+    <default class="前腿_default">
+    <geom contype="4" conaffinity="4"/>
+    </default>
+    <default class="小全向轮2_default">
+    <geom contype="1" conaffinity="1"/>
+    </default>
+    <default class="小全向轮3_default">
+    <geom contype="1" conaffinity="1"/>
+    </default>
+    </default>
+
+    <worldbody>
+        <geom name="floor" pos="0 0 -0.1" size="0 0 1" type="plane" material="matplane" contype="15" conaffinity="15" friction="0 0 0" condim="4" solref="0.002 1" solimp="0.99 0.995 0.001" priority="-1"/>
+        <light directional="true" diffuse=".8 .8 .8" specular=".2 .2 .2" pos="0 0 5" dir="0 0 -1"/>
+        <body name="carmainpart_body" pos="0 0 0.38">
+            <freejoint/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1_xjc_xd80_h28_3d__fa_ke_hu___a1_01_1" mass="0.32" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__1" mass="0.02475" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__2" mass="0.02475" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_ban__1" mass="0.09856" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_qian_ce_gu_ding_ban___jia_gao__1" mass="0.11968" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_hou_ce_gu_ding_ban___jia_gao__1" mass="0.11968" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__1" mass="0.027" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__2" mass="0.027" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__chong_dian_bao__1" mass="0.45" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_xia_gu_ding_jian__1" mass="0.022" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo__1" mass="0.3872" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__1" mass="0.07975" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__2" mass="0.07975" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_100mm15mm_guang_zhou__1" mass="0.0495" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__1" mass="0.003" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__2" mass="0.003" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__3" mass="0.003" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_6_tao_tong__2" mass="0.002" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__1" mass="0.002" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__2" mass="0.003" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_35_12_gu_ding_huan__1" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__gang_xing_hou_lun_gu_ding_jian__1" mass="0.22275" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__2" mass="0.06336" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__4" mass="0.06336" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_dian_pian__1" mass="0.02288" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___wu_jian_zhen___wu_fu_zhu_tui_gu_ding_jian__1" mass="0.16775" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new_1" mass="0.12496" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new__wai_ce__1" mass="0.12496" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__dian_pian__1" mass="0.007" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_gu_ding_duan__1" mass="0.2" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_shu_chu_duan__1" mass="0.12" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji___quan_xiang_lun_lian_jie_jian__new_1" mass="0.0352" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__tuo_pan__1" mass="0.96272" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_16_tao_tong__1" mass="0.003" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_8_tao_tong__1" mass="0.002" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__1" mass="0.005" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__2" mass="0.005" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1" mass="0.022" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__1" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__2" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui_zhi_jia__280_1" mass="0.23" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_16_tao_tong__1" mass="0.005" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_8_tao_tong__1" mass="0.003" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__1" mass="0.005" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__2" mass="0.005" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1" mass="0.022" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__1" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__2" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui_zhi_jia__280_1" mass="0.23" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ji_shen_tan_xian_wei_ban__1" mass="2.0856" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_24v_dian_chi__1" mass="3.5" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__1" mass="0.008" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__2" mass="0.008" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_xia_gu_ding_ban__2" mass="0.10384" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__2_1" mass="0.10384" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__4" mass="0.10384" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__10" mass="0.033" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__4" mass="0.033" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__6" mass="0.033" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__7" mass="0.033" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__8" mass="0.033" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__9" mass="0.033" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__xiang_ji__1" mass="0.17" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ying_wei_da_jason_1" mass="0.461" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_shang_gu_ding_jian__1" mass="0.01925" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_gu_ding_jian__1" mass="0.01925" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___gu_ding_duan__1" mass="0.35" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___shu_chu_duan__1" mass="0.22" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__fu_zhu_tui_lian_jie_jian__1" mass="0.14025" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__1" mass="0.008" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__2" mass="0.008" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__2" mass="0.01" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__3" mass="0.01" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_xia_gu_ding_ban__1" mass="0.0792" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__5" mass="0.0352" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__7" mass="0.0352" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__2" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__3" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__4" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__6" mass="0.03" class="车身_default"/>
+            <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__qu_dong_qi_biao_zhun_mo_xing__1" mass="0.0001" class="车身_default"/>
+            <body name="frontleg" pos="0.22500 0 -0.118000" euler="0 180 0">
+                <joint type="hinge" name="front_leg" pos="0.00000 0.00000 0.00000" axis="0 0 1" range="-360 360" damping="5"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__1" mass="0.05632" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_ce_mian_lian_jie_jian__2" mass="0.05632" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__gang_xing_tui_bu_tan_xian_wei_lian_jie_jian__1" mass="0.11968" class="前腿_default"/>
+                <!-- <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__1" mass="0.00528" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__qian_lun_qian_cha_dian_pian__2" mass="0.00528" class="前腿_default"/> -->
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__1" mass="0.02288" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__tan_xian_wei_qian_cha_gu_ding_jian__2" mass="0.02288" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__1" mass="0.08272" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_ce_mian_lian_jie_jian__2" mass="0.08272" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__1" mass="0.02464" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_nei_ce_gu_ding_jian__2" mass="0.02464" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_you_ce_gu_ding_jian__1" mass="0.0605" class="前腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_tui__t4__wu_fu_zhu_tui_ban__1__lun_gu_dian_ji_zuo_ce_gu_ding_jian__1" mass="0.04125" class="前腿_default"/>
+                <body name="前轮_body" pos="0.00002 -0.00010 0.260000" euler="0 90 90">
+                    <joint type="hinge" name="front_wheel" pos="0.00000 0.00000 0.00000" axis="0 0 1" range="-inf inf"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____qian_lun__1" mass="3.45" class="前轮_default" material="front_wheel_material"/>
+                </body>
+            </body>
+            <body name="辨识腿_body" pos="-0.21750 -0.12831 -0.02700" euler="0 -90 0">
+                <site name="idleg_ft_site" pos="0 0 0" size="0.005" rgba="0 1 0 1"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1_linear_slide_1_linear_slide_a_1" mass="2.7" class="辨识腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1_linear_slide_1_linear_slide_b_1" mass="0.21" class="辨识腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__liu_wei_li_chuan_gan_qi___zhi_xian_dian_ji_gu_ding_jian__1" mass="0.155" class="辨识腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__liu_wei_li_chuan_gan_qi_ji_shen_gu_ding_jian__1" mass="0.165" class="辨识腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__zhi_xian_chuan_gan_qi__1" mass="0.35" class="辨识腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__zhi_xian_chuan_gan_qi_an_zhuang_jian__3" mass="0.1" class="辨识腿_default"/>
+                <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui__1__liu_wei_li_chuan_gan_qi__1" mass="0.32" class="辨识腿_default"/>
+                <body name="辨识腿滑块_body" pos="0 0.20745 -0.23118" euler="0 160 -90">
+                    <joint type="slide" name="idleg_slide" pos="0 0 0" axis="1 0 0" range="-0.12 0" damping="50"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_0814_bu_ding_jian__1" mass="0.15" class="辨识腿滑块_default"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin___1" mass="0.15" class="辨识腿滑块_default"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin____ao__1" mass="0.15" class="辨识腿滑块_default"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__fu_jian___fu_jian___zhuang_pei_ti_1__bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_10mm_bu_ding_jian__1" mass="0.077" class="辨识腿滑块_default"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_chuan_gan_qi_gua_gou_gu_ding_jian__1" mass="0.014" class="辨识腿滑块_default"/>
+                    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_mo_zu_di_bu_lian_jie_jian__0801_1" mass="0.271" class="辨识腿滑块_default"/>
+                    <body name="小全向轮3_body" pos="0.18380 0 -0.02950">
+                        <joint type="hinge" name="small_omni_wheel3" pos="0.00000 0.00000 0.00000" axis="0 0 1" range="-inf inf"/>
+                        <geom type="mesh" mesh="t4____xiao_quan_xiang_lun_3_1" mass="0.6" class="小全向轮3_default" friction="0 0 0" material="front_wheel_material"/>
+                    </body>
+                </body>
+            </body>
+            <body name="小全向轮1_body" pos="-0.13500 0.24768 -0.34015" euler="0 120 0">
+                <joint type="hinge" name="small_omni_wheel1" pos="0.00000 0.00000 0.00000" axis="0 0 1" range="-inf inf"/>
+                <geom type="mesh" mesh="t4____xiao_quan_xiang_lun_1_4" mass="0.6" class="小全向轮1_default" friction="0 0 0" material="front_wheel_material"/>
+            </body>
+            <body name="小全向轮2_body" pos="-0.13500 -0.24768 -0.34015" euler="0 240 0">
+                <joint type="hinge" name="small_omni_wheel2" pos="0.00000 0.00000 0.00000" axis="0 0 1" range="-inf inf"/>
+                <geom type="mesh" mesh="t4____xiao_quan_xiang_lun_2_8" mass="0.6" class="小全向轮2_default" friction="0 0 0" material="front_wheel_material"/>
+            </body>
+            <body name="rearwheel_body" pos="-0.22535 0 -0.37925" euler="90 0 0">
+                <joint type="hinge" name="rear_wheel" pos="0.00000 0.00000 0.00000" axis="0 1 0" damping="0.1" range="-inf inf"/>
+                <geom name="rear_omniwheel_geom" type="mesh" mesh="circle_of_tire" mass="1.72" class="后轮_default" material="rear_wheel_material" friction="0.8 0.01 0.01" condim="4" solref="0.02 1" solimp="0.9 0.95 0.001" priority="10"/>
+                <body name="rearwheel_cylinder0" pos="0.087500 0 0.000000" euler="90 -0.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder0_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder0" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder1" pos="0.087327 0 0.005494" euler="90 -3.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder1_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder1" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder2" pos="0.086810 0 0.010967" euler="90 -7.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder2_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder2" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder3" pos="0.085950 0 0.016396" euler="90 -10.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder3_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder3" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder4" pos="0.084751 0 0.021760" euler="90 -14.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder4_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder4" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder5" pos="0.083217 0 0.027039" euler="90 -18.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder5_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder5" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder6" pos="0.081355 0 0.032211" euler="90 -21.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder6_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder6" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder7" pos="0.079172 0 0.037256" euler="90 -25.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder7_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder7" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder8" pos="0.076677 0 0.042153" euler="90 -28.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder8_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder8" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder9" pos="0.073879 0 0.046885" euler="90 -32.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder9_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder9" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder10" pos="0.070789 0 0.051431" euler="90 -36.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder10_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder10" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder11" pos="0.067420 0 0.055775" euler="90 -39.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder11_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder11" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder12" pos="0.063785 0 0.059898" euler="90 -43.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder12_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder12" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder13" pos="0.059898 0 0.063785" euler="90 -46.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder13_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder13" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder14" pos="0.055775 0 0.067420" euler="90 -50.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder14_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder14" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder15" pos="0.051431 0 0.070789" euler="90 -54.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder15_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder15" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder16" pos="0.046885 0 0.073879" euler="90 -57.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder16_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder16" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder17" pos="0.042153 0 0.076677" euler="90 -61.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder17_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder17" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder18" pos="0.037256 0 0.079172" euler="90 -64.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder18_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder18" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder19" pos="0.032211 0 0.081355" euler="90 -68.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder19_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder19" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder20" pos="0.027039 0 0.083217" euler="90 -72.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder20_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder20" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder21" pos="0.021760 0 0.084751" euler="90 -75.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder21_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder21" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder22" pos="0.016396 0 0.085950" euler="90 -79.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder22_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder22" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder23" pos="0.010967 0 0.086810" euler="90 -82.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder23_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder23" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder24" pos="0.005494 0 0.087327" euler="90 -86.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder24_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder24" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder25" pos="0.000000 0 0.087500" euler="90 -90.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder25_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder25" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder26" pos="-0.005494 0 0.087327" euler="90 -93.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder26_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder26" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder27" pos="-0.010967 0 0.086810" euler="90 -97.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder27_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder27" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder28" pos="-0.016396 0 0.085950" euler="90 -100.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder28_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder28" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder29" pos="-0.021760 0 0.084751" euler="90 -104.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder29_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder29" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder30" pos="-0.027039 0 0.083217" euler="90 -108.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder30_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder30" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder31" pos="-0.032211 0 0.081355" euler="90 -111.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder31_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder31" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder32" pos="-0.037256 0 0.079172" euler="90 -115.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder32_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder32" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder33" pos="-0.042153 0 0.076677" euler="90 -118.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder33_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder33" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder34" pos="-0.046885 0 0.073879" euler="90 -122.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder34_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder34" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder35" pos="-0.051431 0 0.070789" euler="90 -126.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder35_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder35" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder36" pos="-0.055775 0 0.067420" euler="90 -129.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder36_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder36" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder37" pos="-0.059898 0 0.063785" euler="90 -133.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder37_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder37" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder38" pos="-0.063785 0 0.059898" euler="90 -136.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder38_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder38" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder39" pos="-0.067420 0 0.055775" euler="90 -140.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder39_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder39" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder40" pos="-0.070789 0 0.051431" euler="90 -144.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder40_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder40" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder41" pos="-0.073879 0 0.046885" euler="90 -147.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder41_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder41" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder42" pos="-0.076677 0 0.042153" euler="90 -151.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder42_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder42" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder43" pos="-0.079172 0 0.037256" euler="90 -154.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder43_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder43" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder44" pos="-0.081355 0 0.032211" euler="90 -158.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder44_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder44" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder45" pos="-0.083217 0 0.027039" euler="90 -162.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder45_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder45" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder46" pos="-0.084751 0 0.021760" euler="90 -165.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder46_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder46" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder47" pos="-0.085950 0 0.016396" euler="90 -169.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder47_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder47" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder48" pos="-0.086810 0 0.010967" euler="90 -172.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder48_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder48" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder49" pos="-0.087327 0 0.005494" euler="90 -176.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder49_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder49" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder50" pos="-0.087500 0 0.000000" euler="90 -180.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder50_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder50" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder51" pos="-0.087327 0 -0.005494" euler="90 -183.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder51_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder51" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder52" pos="-0.086810 0 -0.010967" euler="90 -187.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder52_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder52" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder53" pos="-0.085950 0 -0.016396" euler="90 -190.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder53_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder53" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder54" pos="-0.084751 0 -0.021760" euler="90 -194.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder54_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder54" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder55" pos="-0.083217 0 -0.027039" euler="90 -198.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder55_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder55" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder56" pos="-0.081355 0 -0.032211" euler="90 -201.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder56_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder56" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder57" pos="-0.079172 0 -0.037256" euler="90 -205.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder57_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder57" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder58" pos="-0.076677 0 -0.042153" euler="90 -208.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder58_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder58" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder59" pos="-0.073879 0 -0.046885" euler="90 -212.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder59_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder59" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder60" pos="-0.070789 0 -0.051431" euler="90 -216.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder60_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder60" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder61" pos="-0.067420 0 -0.055775" euler="90 -219.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder61_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder61" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder62" pos="-0.063785 0 -0.059898" euler="90 -223.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder62_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder62" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder63" pos="-0.059898 0 -0.063785" euler="90 -226.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder63_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder63" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder64" pos="-0.055775 0 -0.067420" euler="90 -230.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder64_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder64" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder65" pos="-0.051431 0 -0.070789" euler="90 -234.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder65_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder65" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder66" pos="-0.046885 0 -0.073879" euler="90 -237.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder66_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder66" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder67" pos="-0.042153 0 -0.076677" euler="90 -241.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder67_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder67" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder68" pos="-0.037256 0 -0.079172" euler="90 -244.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder68_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder68" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder69" pos="-0.032211 0 -0.081355" euler="90 -248.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder69_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder69" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder70" pos="-0.027039 0 -0.083217" euler="90 -252.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder70_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder70" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder71" pos="-0.021760 0 -0.084751" euler="90 -255.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder71_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder71" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder72" pos="-0.016396 0 -0.085950" euler="90 -259.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder72_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder72" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder73" pos="-0.010967 0 -0.086810" euler="90 -262.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder73_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder73" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder74" pos="-0.005494 0 -0.087327" euler="90 -266.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder74_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder74" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder75" pos="-0.000000 0 -0.087500" euler="90 -270.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder75_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder75" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder76" pos="0.005494 0 -0.087327" euler="90 -273.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder76_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder76" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder77" pos="0.010967 0 -0.086810" euler="90 -277.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder77_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder77" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder78" pos="0.016396 0 -0.085950" euler="90 -280.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder78_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder78" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder79" pos="0.021760 0 -0.084751" euler="90 -284.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder79_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder79" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder80" pos="0.027039 0 -0.083217" euler="90 -288.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder80_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder80" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder81" pos="0.032211 0 -0.081355" euler="90 -291.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder81_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder81" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder82" pos="0.037256 0 -0.079172" euler="90 -295.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder82_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder82" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder83" pos="0.042153 0 -0.076677" euler="90 -298.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder83_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder83" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder84" pos="0.046885 0 -0.073879" euler="90 -302.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder84_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder84" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder85" pos="0.051431 0 -0.070789" euler="90 -306.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder85_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder85" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder86" pos="0.055775 0 -0.067420" euler="90 -309.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder86_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder86" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder87" pos="0.059898 0 -0.063785" euler="90 -313.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder87_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder87" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder88" pos="0.063785 0 -0.059898" euler="90 -316.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder88_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder88" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder89" pos="0.067420 0 -0.055775" euler="90 -320.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder89_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder89" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder90" pos="0.070789 0 -0.051431" euler="90 -324.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder90_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder90" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder91" pos="0.073879 0 -0.046885" euler="90 -327.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder91_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder91" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder92" pos="0.076677 0 -0.042153" euler="90 -331.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder92_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder92" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder93" pos="0.079172 0 -0.037256" euler="90 -334.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder93_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder93" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder94" pos="0.081355 0 -0.032211" euler="90 -338.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder94_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder94" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder95" pos="0.083217 0 -0.027039" euler="90 -342.000000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder95_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder95" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder96" pos="0.084751 0 -0.021760" euler="90 -345.600000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder96_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder96" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder97" pos="0.085950 0 -0.016396" euler="90 -349.200000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder97_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder97" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder98" pos="0.086810 0 -0.010967" euler="90 -352.800000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder98_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder98" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="8" conaffinity="8" condim="4" priority="10"/>
+                </body>
+                <body name="rearwheel_cylinder99" pos="0.087327 0 -0.005494" euler="90 -356.400000 0" >
+                    <joint type="hinge" name="rear_wheel_cylinder99_joint" pos="0 0 0" axis="0 0 1" range="-inf inf" damping="0.001"/>
+                    <geom name="rear_omniwheel_cylinder99" type="mesh" mesh="cylinder_of_tire" mass="0.0001" class="后轮_default" material="front_wheel_material" friction="0.8 0.01 0.01" contype="4" conaffinity="4" condim="4" priority="10"/>
+                </body>
+            </body>
+        </body>
+    </worldbody>  
+
+
+    <actuator>
+        <velocity joint="rear_wheel" ctrllimited="true" ctrlrange="-8 8" kv="5" forcelimited="true" forcerange="-1000 1000" name="rear_wheel"/>
+        <position joint="front_leg" ctrllimited="true" ctrlrange="-360 360" kp="25" forcelimited="true" forcerange="-1000 1000" name="front_leg"/>
+        <velocity joint="front_wheel" ctrllimited="true" ctrlrange="-8 8" kv="5" forcelimited="true" forcerange="-3000 3000" name="front_wheel"/>
+        <position joint="idleg_slide" ctrllimited="true" ctrlrange="-0.12 0" kp="8000" forcelimited="true" forcerange="-3000 3000" name="idleg_slide"/>
+    </actuator>
+
+    <sensor>
+        <!-- 六维力矩传感器：以 site 为参考点，输出该点的三维力与三维力矩 -->
+        <force name="idleg_force" site="idleg_ft_site"/>
+        <torque name="idleg_torque" site="idleg_ft_site"/>
+    </sensor>
+
+</mujoco>

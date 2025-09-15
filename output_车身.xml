@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco>
+<compiler meshdir="assets"/>
+  <asset>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1_xjc_xd80_h28_3d__fa_ke_hu___a1_01_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_ban__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_qian_ce_gu_ding_ban___jia_gao__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_hou_ce_gu_ding_ban___jia_gao__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__chong_dian_bao__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_xia_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_100mm15mm_guang_zhou__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__3.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_6_tao_tong__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_35_12_gu_ding_huan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__gang_xing_hou_lun_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__4.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_dian_pian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___wu_jian_zhen___wu_fu_zhu_tui_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new__wai_ce__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__dian_pian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_gu_ding_duan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_shu_chu_duan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji___quan_xiang_lun_lian_jie_jian__new_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__tuo_pan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_16_tao_tong__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_8_tao_tong__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui_zhi_jia__280_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_16_tao_tong__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_8_tao_tong__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui_zhi_jia__280_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ji_shen_tan_xian_wei_ban__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_24v_dian_chi__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_xia_gu_ding_ban__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__2_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__4.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__10.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__4.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__6.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__7.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__8.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__9.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__xiang_ji__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ying_wei_da_jason_1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_shang_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___gu_ding_duan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___shu_chu_duan__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__fu_zhu_tui_lian_jie_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__3.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_xia_gu_ding_ban__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__5.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__7.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__2.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__3.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__4.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__6.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__qu_dong_qi_biao_zhun_mo_xing__1.stl"/>
+  </asset>
+
+  <default>
+  <default class="车身_default">
+  <geom contype="0" conaffinity="0"/>
+  </default>
+  </default>
+
+  <worldbody>
+  <body name="车身_body" pos="0 0 0">
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1_xjc_xd80_h28_3d__fa_ke_hu___a1_01_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_jian__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_xia_mian_gu_ding_ban__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_qian_ce_gu_ding_ban___jia_gao__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_hou_ce_gu_ding_ban___jia_gao__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhong_jian_diao_cang_gu_ding_jian__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__chong_dian_bao__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_xia_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__li_chuan_gan_qi_di_zuo_zhi_jia__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_100mm15mm_guang_zhou__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_10_tao_tong__3" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_20_6_tao_tong__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_21_4_zhou_cheng__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1_15_35_12_gu_ding_huan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__gang_xing_hou_lun_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_ce_xiang_tan_xian_wei_jian__4" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_tui_dian_pian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___wu_jian_zhen___wu_fu_zhu_tui_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__hou_lun___dian_ji_lian_jie_jian__new__wai_ce__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__dian_pian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_gu_ding_duan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji__1__xiao_mi_dian_ji_shu_chu_duan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__hou_lun_bu_fen___gang_xing_tui__1__xiao_mi_dian_ji___quan_xiang_lun_lian_jie_jian__new_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__tuo_pan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_16_tao_tong__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_14_8_tao_tong__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12_30_10_gu_ding_huan__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui___che_jia_gu_ding_jian__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__1__zhi_cheng_tui_zhi_jia__280_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_16_tao_tong__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_14_8_tao_tong__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12_30_10_gu_ding_huan__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2_12mm_zhi_jing_guang_zhou___zhi_cheng_tui__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui___che_jia_gu_ding_jian__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhi_cheng_tui__2__zhi_cheng_tui_zhi_jia__280_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ji_shen_tan_xian_wei_ban__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_24v_dian_chi__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1_m6_shou_ning_luo_shuan__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_xia_gu_ding_ban__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__2_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_ce_mian_tan_xian_wei_jian__4" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__10" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__4" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__6" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__7" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__8" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__dian_chi_cang__1__dian_chi_cang_diao_zhuang_gu_ding_lv_jian__9" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__xiang_ji__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__ying_wei_da_jason_1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_shang_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__che_jia_ce_mian_gu_ding_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___gu_ding_duan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__zhuan_xiang_dian_ji___da_niu_ju__1__zhuan_xiang_dian_ji___da_niu_ju___shu_chu_duan__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__fu_zhu_tui_lian_jie_jian__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m4_shou_ning_luo_si__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1_m6_shou_ning_luo_shuan__3" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_xia_gu_ding_ban__1" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__5" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_ce_mian_tan_xian_wei_jian__7" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__2" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__3" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__4" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__chong_dian_bao_cang_diao_zhuang_gu_ding_lv_jian__6" mass="0.0001" class="车身_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____che_shen__t4__wu_fu_zhu_tui_ban__1__qu_dong_qi_jia_chong_dian_bao_cang__1__qu_dong_qi_biao_zhun_mo_xing__1" mass="0.0001" class="车身_default"/>
+  </body>
+  </worldbody>
+</mujoco>
