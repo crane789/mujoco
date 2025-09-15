@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco>
+<compiler meshdir="assets"/>
+  <asset>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_0814_bu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin___1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin____ao__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__fu_jian___fu_jian___zhuang_pei_ti_1__bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_10mm_bu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_chuan_gan_qi_gua_gou_gu_ding_jian__1.stl"/>
+    <mesh file="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_mo_zu_di_bu_lian_jie_jian__0801_1.stl"/>
+  </asset>
+
+  <default>
+  <default class="辨识腿滑块_default">
+  <geom contype="0" conaffinity="0"/>
+  </default>
+  </default>
+
+  <worldbody>
+  <body name="辨识腿滑块_body" pos="0 0 0">
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_0814_bu_ding_jian__1" mass="0.0001" class="辨识腿滑块_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin___1" mass="0.0001" class="辨识腿滑块_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__quan_xiang_lun_gu_ding_jian___da_yin____ao__1" mass="0.0001" class="辨识腿滑块_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__fu_jian___fu_jian___zhuang_pei_ti_1__bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1_10mm_bu_ding_jian__1" mass="0.0001" class="辨识腿滑块_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_chuan_gan_qi_gua_gou_gu_ding_jian__1" mass="0.0001" class="辨识腿滑块_default"/>
+    <geom type="mesh" mesh="t4__wu_fu_zhu_tui_ban_____bian_shi_tui_hua_kuai__t4__wu_fu_zhu_tui_ban__1__zhi_xian_mo_zu_di_bu_lian_jie_jian__0801_1" mass="0.0001" class="辨识腿滑块_default"/>
+  </body>
+  </worldbody>
+</mujoco>
